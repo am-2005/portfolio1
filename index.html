@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>AM Portfolio</title>
+  <meta content="AMのポートフォリオサイトです。" name="description">
+  <meta property="og:title" content="AM Portfolio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="AM Portfolio" />
+  <meta property="og:description" content="AMのポートフォリオサイトです。" />
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="/portfolio/common/css/common.css" rel="stylesheet">
+  <link href="/portfolio/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="am" id="app">
+    <!-- header -->
+    <header class="header">
+      <div class="header_inner">
+        <nav class="header_nav">
+          <ul class="header_nav_menu">
+            <li class="header_nav_menu_item"><button v-scroll-to="'#profile'">Profile</button></li>
+            <li class="header_nav_menu_item"><button v-scroll-to="'#skill'">Skills</button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- main -->
+    <main class="main">
+
+      <div class="mv">
+        <div class="mv_txtArea">
+          <div class="mv_txtArea_inner">
+            <h1 class="mv_ttl"><span>AM</span> Portfolio</h1>
+            <p class="mv_txtArea_txt">ご覧いただきありがとうございます。</p>
+            <p class="mv_txtArea_txt">このサイトはAMのポートフォリオサイトです。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_inner">
+
+        <section id="profile" class="profile sec">
+          <h2 class="sec_sTtl" v-inview:class="'on'"><span>P</span><span>r</span><span>o</span><span>f</span><span>i</span><span>l</span><span>e</span></h2>
+          <p class="sec_lead fade" v-inview:class="'fadeIn'">様々な職種を経験した後、4年半コーダー・フロントエンドエンジニアの仕事を経験いたしました。<br>ようやく自分に合う仕事を見つけることができたと感じています。</p>
+
+          <div class="profile_detail">
+            <div class="profile_detail_img"><img src="/portfolio/images/leaf.png" alt="プロフィール画像"></div>
+            <div class="profile_detail_txtArea">
+              <dl class="profile_detail_txtArea_inner">
+                <dt class="profile_detail_sTtl">名前</dt>
+                <dd class="profile_detail_txt">AM</dd>
+                <dt class="profile_detail_sTtl">性別</dt>
+                <dd class="profile_detail_txt">女性</dd>
+                <dt class="profile_detail_sTtl">経験</dt>
+                <dd class="profile_detail_txt">webコーダー(1年半)、フロントエンドエンジニア(約3年)、イラストレーター(少々)</dd>
+                <dt class="profile_detail_sTtl">趣味</dt>
+                <dd class="profile_detail_txt">ジョギング、散策、登山、サークル参加、アニメ、漫画</dd>
+                <dt class="profile_detail_sTtl">興味</dt>
+                <dd class="profile_detail_txt">webGLなどのアニメーション領域</dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <section id="skill" class="skill sec">
+          <h2 class="sec_sTtl" v-inview:class="'on'"><span>S</span><span>k</span><span>i</span><span>l</span><span>l</span><span>s</span></h2>
+          <p class="sec_lead fade" v-inview:class="'fadeIn'">コーポレートサイトやECサイトなどのwebのコーディング（更新・制作・保守・設計など）を担当してきました。<br>
+          ディレクター、デザイナーとチームを組んでいたためコミュニケーション(報・連・相)も問題なく行えます。<br>アニメーション(動き)が好きです。<p>
+
+          <div class="skill_detail fade" v-inview:class="'fadeIn'">
+            <dl class="skill_detail_inner">
+              <dt>やってきたこと</dt>
+              <dd>WordPressやMoveble TypeなどのCMSやVue.jsに組み込む前のコーディング・設計</dd>
+              <dd>デザインに忠実</dd>
+              <dd>レスポンシブ・リキッド対応</dd>
+              <dd>SEO・セマンスティックを意識</dd>
+              <dd>作業効率やメンテナンス性を考えた設計</dd>
+              <dd>テンプレートやモジュールの作成</dd>
+              <dd>CSS設計 - BEM、FLOCSS</dd>
+              <dd>セルフマネジメント</dd>
+              <dd>新人へのコードレビュー</dd>
+              <dd>etc</dd>
+            </dl>
+          </div>
+
+          <ul class="skill_list" v-inview:class="'on'">
+            <li class="skill_list_item" v-for="skill in skills">
+              <div class="skill_graph">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="skill_graph_circle skill_graph_circle--back" cx="50" cy="50" r="48" />
+                  <circle class="skill_graph_circle skill_graph_circle--front" :class="['level' + skill.figures]" cx="50" cy="50" r="48" />
+                </svg>
+                <span class="skill_level" :class="[skill.font]">{{ skill.level }}</span>
+              </div>
+              <div class="skill_name">{{ skill.name }}</div>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+    </main>
+    <!-- /main -->
+
+    <!-- footer -->
+    <footer class="footer">
+      <p class="footer_copy">&copy; 2020 am</p>
+    </footer>
+    <!-- /footer -->
+  </div>
+
+  <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vueinview@1.0.5/dist/vue-inview.min.js"></script>
+  <script src="//unpkg.com/vue-scrollto"></script>
+  <script>
+
+    const Inview = window.vueinview;
+
+    Vue.use(Inview);
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        skills: [
+          {
+            name: 'HTML',
+            level: '上級',
+            figures: '3'
+          },
+          {
+            name: 'CSS',
+            level: '上級',
+            figures: '3'
+          },
+          {
+            name: 'SASS',
+            level: '上級',
+            figures: '3'
+          },
+          {
+            name: 'jQuery',
+            level: '中級',
+            figures: '2'
+          },
+          {
+            name: 'JavaScript',
+            level: '初級',
+            figures: '1'
+          },
+          {
+            name: 'EJS',
+            level: '初級',
+            figures: '1'
+          },
+          {
+            name: 'Vue.js',
+            level: '修正程度\n勉強中',
+            figures: '0',
+            font: 'small'
+          },
+          {
+            name: 'PHP',
+            level: '修正・改修\n程度',
+            figures: '0',
+            font: 'small'
+          },
+          {
+            name: 'Git',
+            level: '中級',
+            figures: '2'
+          },
+          {
+            name: 'gulp',
+            level: '初級',
+            figures: '1'
+          },
+          {
+            name: 'Photoshop',
+            level: '中級',
+            figures: '2'
+          },
+          {
+            name: 'Illustrator',
+            level: '中級',
+            figures: '2'
+          },
+          {
+            name: 'Sketch',
+            level: 'スライス\n程度',
+            figures: '0',
+            font: 'small'
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

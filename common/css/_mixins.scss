@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* ========================================
+ mixins
+=========================================== */
+
+/* ========== break point */
+@mixin mq($mq) {
+  @if $mq==pc {
+    @media screen and (min-width: $pc + px) {
+      @content;
+    }
+  }
+
+  @else if $mq==sp {
+    @media screen and (max-width: $sp + px) {
+      @content;
+    }
+  }
+}
